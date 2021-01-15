@@ -1,22 +1,25 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <MarkdownEditor />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import MarkdownEditor from './components/MarkdownEditor.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    MarkdownEditor
   }
 }
 </script>
 
 <style>
+body {
+  margin: 0 auto;
+}
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
