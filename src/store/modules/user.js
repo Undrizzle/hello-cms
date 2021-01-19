@@ -1,11 +1,11 @@
 import Vue from 'vue'
-import { login } from '../../api/user'
-import { getAccessToken, setAccessToken } from '../../utils/accessToken'
+import { login, logout } from '../../api/user'
+import { getAccessToken, removeAccessToken, setAccessToken } from '../../utils/accessToken'
 
 const state = () => ({
   accessToken: getAccessToken(),
-  username: '',
-  avatar: ''
+  username: 'admin',
+  avatar: '../assets/avatar.gif'
 })
 
 const getters = {
@@ -51,6 +51,14 @@ const actions = {
         'error'
       )
     }
+  },
+  async logout({ dispatch }) {
+    await logout()
+    await dispatch('resetAccessToken')
+  },
+  resetAccessToken({ commit }) {
+    commit('setAccessToken', '')
+    removeAccessToken()
   }
 }
 

@@ -12,12 +12,27 @@
       </div>
     </div>
     <div class="header-right">
+      <Avatar />
     </div>
   </div>
 </template>
 
+<script>
+import Avatar from './Avatar'
+
+export default {
+  name: 'Header',
+  components: {
+    Avatar
+  }
+}
+</script>
+
 <style scoped>
 .header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   height: 60px;
   padding: 10px 0;
 }

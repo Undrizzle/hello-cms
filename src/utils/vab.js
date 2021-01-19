@@ -1,4 +1,4 @@
-import { Message, Notification } from 'element-ui'
+import { Message, MessageBox, Notification } from 'element-ui'
 
 const install = (Vue) => {
 
@@ -10,6 +10,25 @@ const install = (Vue) => {
       type: type,
       dangerouslyUseHTMLString: true,
       duration: 3000
+    })
+  }
+
+  Vue.prototype.$baseConfirm = (content, title, callback1, callback2) => {
+    MessageBox.confirm(content, title || '温馨提示', {
+      confirmButtonText: '确定',
+      cancelButtonText: '取消',
+      closeOnClickModal: false,
+      type: 'warning'
+    })
+    .then(() => {
+      if (callback1) {
+        callback1()
+      }
+    })
+    .catch(() => {
+      if (callback2) {
+        callback2()
+      }
     })
   }
 

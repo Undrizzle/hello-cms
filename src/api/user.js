@@ -8,3 +8,9 @@ export async function login(data) {
     }
   })
 }
+
+export async function logout() {
+  return new Promise(resolve => {
+    resolve()
+  })
+}
