@@ -16,10 +16,6 @@ export default {
 </script>
 
 <style scoped>
-.editor-container {
-  padding: 0 60px;
-}
-
 .editor-content {
   height: calc(100vh - 60px);
 }
