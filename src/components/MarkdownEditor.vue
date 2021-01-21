@@ -17,7 +17,7 @@ export default {
 
 <style scoped>
 .editor-content {
-  height: calc(100vh - 60px);
+  height: calc(100vh - 80px);
 }
 </style>
 

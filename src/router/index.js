@@ -7,7 +7,32 @@ import Login from '../components/Login.vue'
 Vue.use(VueRouter)
 
 const routes = [
-  { path: '/', name: 'index', component: HomeLayout, meta: { auth: true } },
+  { 
+    path: '/', 
+    component: HomeLayout,
+    redirect: 'documents',
+    children: [
+      {
+        path: '/documents',
+        name: 'Documents',
+        component: () => import('../components/DocumentList.vue'),
+        meta: {
+          title: '文档',
+          auth: true
+        }
+      },
+      {
+        path: '/editor',
+        name: 'Editor',
+        component: () => import('../components/MarkdownEditor.vue'),
+        meta: {
+          title: '创作',
+          auth: true
+        }
+      }
+    ]
+  },
+
   { path: '/login', name: 'login', component: Login }
 ]
 
