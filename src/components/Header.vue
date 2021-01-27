@@ -13,6 +13,7 @@
     </div>
     <div class="header-right">
       <Avatar />
+      <!--
       <div class="btn-upload" v-if="uploadShow">
         <el-button type="primary" @click="dialogVisible = true">发布<i class="el-icon-upload el-icon--right"></i></el-button>
 
@@ -36,6 +37,7 @@
           </span>
         </el-dialog>
       </div>
+      -->
     </div>
   </div>
 </template>
@@ -49,6 +51,7 @@ export default {
     Avatar
   },
   data() {
+    /*
     const validateTitle = (rule, value, callback) => {
       if (value == '') {
         callback(new Error('标题不能为空'))
@@ -64,9 +67,11 @@ export default {
         callback()
       }
     }
+    */
 
     return {
       activeIndex: '',
+      /*
       uploadShow: false,
       dialogVisible: false,
       publishForm: {
@@ -81,25 +86,27 @@ export default {
           { validator: validatePath, trigger: 'blur' }
         ]
       }
+      */
     }
   },
   mounted() {
     if (this.$route.name === 'Documents') {
       this.activeIndex = 'documents'
-      this.uploadShow = false
+      //this.uploadShow = false
     } else if (this.$route.name === 'Editor') {
       this.activeIndex = 'editor'
-      this.uploadShow = true
+      //this.uploadShow = true
     }
   },
   methods: {
     handleSelect(key) {
       if (key === 'editor') {
-        this.uploadShow = true
+        //this.uploadShow = true
       } else {
-        this.uploadShow = false
+        //this.uploadShow = false
       }
     },
+    /*
     onSubmit() {
       this.$refs.publishForm.validate((valid) => {
         if (valid) {
@@ -109,6 +116,7 @@ export default {
         }
       })    
     }
+    */
   }
 }
 </script>
