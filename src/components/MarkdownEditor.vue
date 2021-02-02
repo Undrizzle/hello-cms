@@ -1,6 +1,6 @@
 <template>
   <div class="editor-container">
-    <mavon-editor class="editor-content" v-model="handbook" @save="handleSave" />
+    <mavon-editor ref="md" class="editor-content" v-model="handbook" @save="handleSave" @imgAdd="handleImgAdd" @imgDel="handleImgDel" />
 
     <el-dialog
           title="发布信息"
@@ -25,6 +25,8 @@
 </template>
 
 <script>
+import { uploadImg, deleteImg } from '../api/publish'
+
 export default {
   name: 'MarkdownEditor',
   data() {
@@ -81,6 +83,18 @@ export default {
           return false
         }
       })    
+    },
+    async handleImgAdd(pos, $file) {
+      let formData = new FormData()
+      formData.append('image', $file)
+      const { data } = await uploadImg(formData)
+      this.$refs.md.$img2Url(pos, data.url)
+    },
+    handleImgDel($file) {
+      const data = {
+        name: $file[1].name
+      }
+      deleteImg(data)
     }
   }
 }

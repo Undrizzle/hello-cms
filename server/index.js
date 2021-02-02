@@ -8,6 +8,7 @@ const app = express()
 const http = require('http').Server(app)
 
 app.use(express.static(path.join(__dirname, '../dist')))
+app.use(express.static(path.join(__dirname, '../public')))
 
 app.set('views', path.join(__dirname, '../dist'))
 app.engine('html', ejs.__express)
